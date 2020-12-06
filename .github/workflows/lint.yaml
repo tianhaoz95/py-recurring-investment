@@ -1,0 +1,22 @@
+name: Lint code
+on:
+  push:
+    branches:
+    - 'main'
+  pull_request:
+    branches:
+    - 'main'
+  schedule:
+    - cron: '* */6 * * *'
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.5'
+    - name: install dependencies
+      run: pip install -r requirements.txt
+    - name: lint code
+      run: python -m yapf -d -vv main.py utils/**.py

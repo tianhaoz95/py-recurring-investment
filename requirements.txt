@@ -1,0 +1,17 @@
+alpaca-trade-api==0.51.0
+autopep8==1.5.4
+certifi==2020.12.5
+chardet==3.0.4
+idna==2.10
+numpy==1.19.4
+pandas==1.1.4
+pycodestyle==2.6.0
+python-dateutil==2.8.1
+pytz==2020.4
+requests==2.25.0
+six==1.15.0
+toml==0.10.2
+urllib3==1.25.11
+websocket-client==0.57.0
+websockets==8.1
+yapf==0.30.0
