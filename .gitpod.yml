@@ -2,4 +2,8 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: pip install -r ./requirements.txt
+  - init: |
+      pip install virtualenv
+      python3 -m virtualenv .venv
+      source ./.venv/bin/activate
+      pip install -r ./requirements.txt
