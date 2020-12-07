@@ -1,0 +1,10 @@
+# Py Recurring Investment
+
+```mermaid
+graph TD
+    TRIGGER --> COMPUTE_CONDITIONS
+    COMPUTE_CONDITIONS --> FILTER
+    FILTER --> RANK
+    RANK --> CHECK_AVAILABILITIES
+    CHECK_AVAILABILITIES --> EXECUTE_ACTIONS
+```

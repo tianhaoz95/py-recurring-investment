@@ -1,6 +1,6 @@
 import logging
 import alpaca_trade_api as tradeapi
-from utils.cred import get_alpaca_cred
+from src.utils.cred.from_env_impl import get_alpaca_cred
 
 
 def main():

@@ -1,9 +1,8 @@
 import os
-import alpaca_trade_api as tradeapi
-from abc import ABC, abstractmethod
+from src.utils.cred.interface import AlpacaCred
+from abc import abstractmethod
 
-
-class AlpacaCred(ABC):
+class AlpacaCredFromEnv(AlpacaCred):
     @abstractmethod
     def get_cred_mapping(self):
         pass
@@ -20,7 +19,7 @@ class AlpacaCred(ABC):
         return os.environ[env_var_id]
 
 
-class DevAlpacaCred(AlpacaCred):
+class DevAlpacaCred(AlpacaCredFromEnv):
     def get_cred_mapping(self):
         return {
             'endpoint': 'ALPACA_API_DEV_ENDPOINT',
@@ -29,7 +28,7 @@ class DevAlpacaCred(AlpacaCred):
         }
 
 
-class ProdAlpacaCred(AlpacaCred):
+class ProdAlpacaCred(AlpacaCredFromEnv):
     def get_cred_mapping(self):
         return {
             'endpoint': 'ALPACA_API_PROD_ENDPOINT',

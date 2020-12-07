@@ -19,4 +19,4 @@ jobs:
     - name: install dependencies
       run: pip install -r requirements.txt
     - name: lint code
-      run: python -m yapf -d -vv main.py utils/**.py
+      run: python -m yapf -d -vv main.py src/utils/**.py
