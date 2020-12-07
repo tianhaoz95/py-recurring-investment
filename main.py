@@ -16,10 +16,8 @@ def main():
     logger.info('Retrieved the watchlists: {watchlists}'.format(
         watchlists=watchlists))
     """
-    """
     account = api.get_account()
     logger.info('Retrieved the account: {account}'.format(account=account))
-    """
     """
     example_bar = api.get_barset('AAPL', '1D')
     logger.info('Retrieved the example bar: ${example_bar}'.format(example_bar=example_bar))
@@ -28,11 +26,13 @@ def main():
     logger.info(
         'Retrieved the example last trade: ${example_last_trade}'.format(
             example_last_trade=example_last_trade))
+    """
     example_last_quote = api.get_last_quote('AAPL')
     logger.info(
         'Retrieved the example last quote: {example_last_quote}'.format(
             example_last_quote=example_last_quote))
     logger.info('Done!')
+    """
 
 
 if __name__ == '__main__':

@@ -2,6 +2,7 @@ import os
 from src.utils.cred.interface import AlpacaCred
 from abc import abstractmethod
 
+
 class AlpacaCredFromEnv(AlpacaCred):
     @abstractmethod
     def get_cred_mapping(self):
