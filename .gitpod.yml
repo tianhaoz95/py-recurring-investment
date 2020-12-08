@@ -3,7 +3,7 @@ image:
 
 tasks:
   - init: |
-      pip install virtualenv
-      python3 -m virtualenv .venv
+      pip3 install virtualenv
+      python3 -m virtualenv --system-site-packages .venv
       source ./.venv/bin/activate
-      pip install -r ./requirements.txt
+      pip3 install -r ./requirements.txt
