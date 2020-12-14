@@ -7,22 +7,26 @@ from src.utils.cred.from_env_impl import get_alpaca_cred
 parser = argparse.ArgumentParser(
     description='A single execution of auto trade.')
 parser.add_argument('--alpaca_api_key', type=str,
-                    help='The Alpaca API key.', dest='key')
+                    help='The Alpaca API key.')
 parser.add_argument('--alpaca_api_secret', type=str,
-                    help='The Alpaca API secret.', dest='secret')
-parser.add_argument('--alpaca__apiendpoint', type=str,
-                    help='The Alpaca API endpoint.', dest='endpoint')
+                    help='The Alpaca API secret.')
+parser.add_argument('--alpaca_api_endpoint', type=str,
+                    help='The Alpaca API endpoint.')
 args = parser.parse_args()
-
+cli_args = {
+    'endpoint': args.alpaca_api_endpoint,
+    'key': args.alpaca_api_key,
+    'secret': args.alpaca_api_secret,
+}
 
 def main():
     logging.basicConfig(level=logging.DEBUG)
     logger = logging.getLogger('main')
     logger.setLevel(logging.DEBUG)
     cred = get_alpaca_cred()
-    api = tradeapi.REST(cred.get_cred('key'),
-                        cred.get_cred('secret'),
-                        base_url=cred.get_cred('endpoint'))
+    api = tradeapi.REST(cred.get_cred('key', args),
+                        cred.get_cred('secret', args),
+                        base_url=cred.get_cred('endpoint', args))
     """
     watchlists = api.get_watchlists()
     logger.info('Retrieved the watchlists: {watchlists}'.format(
