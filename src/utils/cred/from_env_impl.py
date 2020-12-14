@@ -8,14 +8,14 @@ class AlpacaCredFromEnv(AlpacaCred):
     def get_cred_mapping(self):
         pass
 
-    def get_cred(self, cred_type):
+    def get_cred_internal(self, cred_type):
         cred_mapping = self.get_cred_mapping()
         if (cred_type not in cred_mapping):
             raise RuntimeError('{cred_type} not found in cred mapping.'.format(
                 cred_type=cred_type))
         env_var_id = cred_mapping[cred_type]
         if (env_var_id not in os.environ):
-            raise RuntimeError('{env_var_id} not found in envrionment.'.format(
+            raise RuntimeError('{env_var_id} not found in environment.'.format(
                 env_var_id=env_var_id))
         return os.environ[env_var_id]
 

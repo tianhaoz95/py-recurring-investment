@@ -7,5 +7,5 @@ class AlpacaCredFromYamlConfig(AlpacaCredFromEnv):
     def read_config_content(self):
         pass
 
-    def get_cred(self, cred_type):
+    def get_cred_internal(self, cred_type):
         raise NotImplementedError()

@@ -1,6 +1,18 @@
 import logging
+import argparse
 import alpaca_trade_api as tradeapi
 from src.utils.cred.from_env_impl import get_alpaca_cred
+
+
+parser = argparse.ArgumentParser(
+    description='A single execution of auto trade.')
+parser.add_argument('--alpaca_api_key', type=str,
+                    help='The Alpaca API key.', dest='key')
+parser.add_argument('--alpaca_api_secret', type=str,
+                    help='The Alpaca API secret.', dest='secret')
+parser.add_argument('--alpaca__apiendpoint', type=str,
+                    help='The Alpaca API endpoint.', dest='endpoint')
+args = parser.parse_args()
 
 
 def main():
